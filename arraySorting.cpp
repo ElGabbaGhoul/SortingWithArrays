@@ -1,6 +1,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <bits/stdc++.h>
+
 
 #include "arraySorting.h"
 
@@ -74,4 +76,21 @@ void sortArrays(std::string (& namesArray)[MAXSIZE], std::string(& numsArray)[MA
     system("pause");
     // keeps indicies relative across both arrays
 // no return
+}
+
+bool binSearch(std::string (& namesArray)[MAXSIZE], int l, int totalLines, const std::string& query) {
+    if (totalLines >= l) {
+        int mid = l + (totalLines - 1)/ 2;
+        if(namesArray[mid] == query) {
+            return true;
+        }
+
+        if (namesArray[mid] > query) {
+            return binSearch(namesArray, l, mid-1, query);
+        }
+
+        return binSearch(namesArray, mid + 1, totalLines, query);
+    }
+
+    return false;
 }

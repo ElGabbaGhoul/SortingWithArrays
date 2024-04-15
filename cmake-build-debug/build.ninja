@@ -61,6 +61,12 @@ build CMakeFiles/arraySorting.dir/arraySorting.cpp.obj: CXX_COMPILER__arraySorti
   OBJECT_DIR = CMakeFiles\arraySorting.dir
   OBJECT_FILE_DIR = CMakeFiles\arraySorting.dir
 
+build CMakeFiles/arraySorting.dir/getString.cpp.obj: CXX_COMPILER__arraySorting_unscanned_Debug C$:/Users/scnid/CLionProjects/arraySorting/getString.cpp || cmake_object_order_depends_target_arraySorting
+  DEP_FILE = CMakeFiles\arraySorting.dir\getString.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\arraySorting.dir
+  OBJECT_FILE_DIR = CMakeFiles\arraySorting.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target arraySorting
@@ -69,7 +75,7 @@ build CMakeFiles/arraySorting.dir/arraySorting.cpp.obj: CXX_COMPILER__arraySorti
 #############################################
 # Link the executable arraySorting.exe
 
-build arraySorting.exe: CXX_EXECUTABLE_LINKER__arraySorting_Debug CMakeFiles/arraySorting.dir/main.cpp.obj CMakeFiles/arraySorting.dir/arraySorting.cpp.obj
+build arraySorting.exe: CXX_EXECUTABLE_LINKER__arraySorting_Debug CMakeFiles/arraySorting.dir/main.cpp.obj CMakeFiles/arraySorting.dir/arraySorting.cpp.obj CMakeFiles/arraySorting.dir/getString.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\arraySorting.dir
