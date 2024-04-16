@@ -9,7 +9,6 @@ void introMessage() {
     // std::string desktopLocation;
     std::cout << "The output file is located in the project directory as: " << std::endl;
     std::cout << "student.txt."  << std::endl;
-    system("pause");
 }
 
 int readFile(std::string namesArray[],std::string numsArray[], int MAXSIZE){
@@ -19,6 +18,7 @@ int readFile(std::string namesArray[],std::string numsArray[], int MAXSIZE){
     // If there is a problem, notify the user.
     if (!file.is_open()) {
         std::cerr << "Error opening file" << std::endl;
+        return 1;
     }
 
     std::string line;
@@ -49,7 +49,6 @@ void displayArrays(std::string (& namesArray)[MAXSIZE], std::string (& numsArray
     for(int i=0; i < totalLines; i++) {
         std::cout << i+1 << ": " << "Name: " << namesArray[i] << ", L-Number: " << numsArray[i] <<std::endl;
     }
-    system("pause");
 
 }
 
@@ -69,7 +68,6 @@ void sortArrays(std::string (& namesArray)[MAXSIZE], std::string(& numsArray)[MA
             swap(numsArray[min_idx], numsArray[i]);
         }
     }
-    system("pause");
     // keeps indicies relative across both arrays
 // no return
 }
