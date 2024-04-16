@@ -1,7 +1,6 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <bits/stdc++.h>
 
 
 #include "arraySorting.h"
@@ -19,7 +18,10 @@ int readFile(std::string namesArray[],std::string numsArray[], int MAXSIZE){
     // Open the file.
     std::cout << "Reading file..." << std::endl;
     std::ifstream infile;
-    infile.open(R"(C:\Users\scnid\Desktop\School\Spring 24\CS\Lab2\sample_more.txt)");
+    // DESKTOP
+    infile.open(R"(C:\Users\Scooter\Desktop\School\HW Spring 24\CS\sample_more.txt)");
+    // LAPTOP
+    // infile.open(R"(C:\Users\scnid\Desktop\School\Spring 24\CS\Lab2\sample_more.txt)");
     // If there is a problem, notify the user.
     if (!infile) {
         std::cerr << "Error opening file" << std::endl;
@@ -79,18 +81,39 @@ void sortArrays(std::string (& namesArray)[MAXSIZE], std::string(& numsArray)[MA
 }
 
 bool binSearch(std::string (& namesArray)[MAXSIZE], int l, int totalLines, const std::string& query) {
-    if (totalLines >= l) {
-        int mid = l + (totalLines - 1)/ 2;
-        if(namesArray[mid] == query) {
+    int index = -1;
+    int min = 0; int max = totalLines - 1;
+    int lookat;
+
+    while (min <= max){
+        lookat = (min + max) / 2;
+        if (query.compare(namesArray[lookat]) < 0){
+            max = lookat - 1;
+        } else if (query.compare(namesArray[lookat]) > 0){
+            min = lookat + 1;
+        } else {
+            index = lookat;
+            min = max + 1;
             return true;
         }
-
-        if (namesArray[mid] > query) {
-            return binSearch(namesArray, l, mid-1, query);
-        }
-
-        return binSearch(namesArray, mid + 1, totalLines, query);
     }
-
     return false;
+
+
+    // Tried implementing recursive binary search
+    // It wasn't working ToT
+
+//    if (totalLines >= l) {
+//        int mid = l + (totalLines - 1) / 2;
+//        if(namesArray[mid] == query) {
+//            return true;
+//        }
+//        if (namesArray[mid] > query) {
+//            return binSearch(namesArray, l, mid - 1, query);
+//        }
+//
+//        return binSearch(namesArray, mid + 1, totalLines, query);
+//    }
+//
+//    return false;
 }

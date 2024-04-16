@@ -7,19 +7,27 @@ int main() {
   std::string searchQuery;
   std::string namesArray[MAXSIZE];
   std::string numsArray[MAXSIZE];
+  int searches = 0;
 
   introMessage();
   int totalLines = readFile(namesArray, numsArray, MAXSIZE);
+  std::cout << "Total Lines: " << totalLines << std::endl;
   displayArrays(namesArray, numsArray, totalLines);
   sortArrays(namesArray, numsArray, totalLines);
   displayArrays(namesArray, numsArray, totalLines);
-  searchQuery = getString();
-  bool studentFound = binSearch(namesArray, l, totalLines, searchQuery);
-  if (studentFound) {
-    std::cout << "The person you're searching for: " << searchQuery << ", was found!" << std::endl;
-  }  else {
-    std::cout << "Sorry, the person you're searching for: " << searchQuery<< ", was not found." << std::endl;
-    std::cout << "Please try again." << std::endl;
-  }
-
+do {
+    searchQuery = getString();
+    bool studentFound = binSearch(namesArray, l, totalLines, searchQuery);
+      if (studentFound) {
+          std::cout << "The person you're searching for: " << searchQuery << ", was found!" << std::endl;
+          std::cout << searches + 1 << " out of 5 searches used." << std::endl;
+          searches++;
+      } else {
+          std::cout << "Sorry, the person you're searching for: " << searchQuery << ", was not found." << std::endl;
+          std::cout << searches + 1 << " out of 5 searches used." << std::endl;
+          std::cout << "Please try again." << std::endl;
+          searches++;
+      }
+  } while (searches < 5);
+  return 0;
 }
