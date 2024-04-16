@@ -58,7 +58,7 @@ void sortArrays(std::string (& namesArray)[MAXSIZE], std::string(& numsArray)[MA
         std::string name = namesArray[i];
         std::string elNum = numsArray[i];
 
-
+// fake update
 
 
     }
