@@ -1,3 +1,14 @@
+/*
+Lab 2
+Name: Scott "Marble" Nideffer
+Date: 04/15/2024
+IDE: Clion/Replit
+Version: 1.0
+Description: A program that creates two parallel arrays from data in student.txt,
+ sorts them
+*/
+
+
 #include "arraySorting.h"
 #include "getString.h"
 #include <iostream>

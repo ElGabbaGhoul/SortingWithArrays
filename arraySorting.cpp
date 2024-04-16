@@ -56,16 +56,16 @@ void sortArrays(std::string (& namesArray)[MAXSIZE], std::string(& numsArray)[MA
 // sorts from z to a
     std::cout << "Sorting Arrays..." << std::endl;
 
-    int i, j, min_idx;
+    int i, j, max_idx;
     for (i = 0; i < totalLines; i++) {
-        min_idx = i;
+        max_idx = i;
         for (j= i+1; j < totalLines; j++) {
-            if (namesArray[j] < namesArray[min_idx])
-                min_idx = j;
+            if (namesArray[j] > namesArray[max_idx])
+                max_idx = j;
         }
-        if (min_idx != i) {
-            swap(namesArray[min_idx], namesArray[i]);
-            swap(numsArray[min_idx], numsArray[i]);
+        if (max_idx != i) {
+            swap(namesArray[max_idx], namesArray[i]);
+            swap(numsArray[max_idx], numsArray[i]);
         }
     }
     // keeps indicies relative across both arrays
