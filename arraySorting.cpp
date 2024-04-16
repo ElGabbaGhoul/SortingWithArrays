@@ -38,6 +38,9 @@ int readFile(std::string namesArray[],std::string numsArray[], int MAXSIZE){
             index++;
 
         if (index == MAXSIZE) {
+            // Error message doesn't always display when or where it's expected to.
+            // Sometimes displays before anything else, sometimes displays in between lines
+            // I don't know why.
             std::cerr << "Maximum array length reached: " << MAXSIZE << std::endl;
         }
     }
@@ -53,9 +56,6 @@ void displayArrays(std::string (& namesArray)[MAXSIZE], std::string (& numsArray
 }
 
 void sortArrays(std::string (& namesArray)[MAXSIZE], std::string(& numsArray)[MAXSIZE], int totalLines) {
-// sorts from z to a
-    std::cout << "Sorting Arrays..." << std::endl;
-
     int i, j, min_idx;
     for (i = 0; i < totalLines; i++) {
         min_idx = i;

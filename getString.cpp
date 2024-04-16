@@ -8,7 +8,7 @@
 std::string getString() {
     std::string searchQuery;
 
-    std::cout << "Who are you looking for?: "<< std::endl;
+    std::cout << "\nWho are you looking for?: "<< std::endl;
     std::cin >> searchQuery;
 
 

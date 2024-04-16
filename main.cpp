@@ -15,24 +15,35 @@ Description: A program that creates two parallel arrays from data in student.txt
 
 int main() {
   int l = 0;
+  int searches = 0;
   std::string searchQuery;
+
   // Create two parallel arrays max of 20 elements
   std::string namesArray[MAXSIZE];
   std::string numsArray[MAXSIZE];
-  int searches = 0;
 
+
+  // Display intro message notifying users of the name, location and format of file
   introMessage();
+
+  // returns number of elements added to arrays.
   int totalLines = readFile(namesArray, numsArray, MAXSIZE);
-  std::cout << "Total Lines: " << totalLines << std::endl;
+
+  // Displays unsorted arrays
+  std::cout << "\nUnsorted Arrays: \n" << std::endl;
   displayArrays(namesArray, numsArray, totalLines);
   // Sort Arrays by LNumber (Low -> High)
   sortArrays(numsArray, namesArray, totalLines);
   // Displays arrays sorted by LNumber
+  std::cout << "\nArrays Sorted by L-Number: \n" << std::endl;
   displayArrays(numsArray, namesArray, totalLines);
   // Sort arrays by Name (A -> Z)
   sortArrays(namesArray, numsArray, totalLines);
   // Displays arrays sorted by Name
+  std::cout << "\nArrays Sorted by First Name: \n" << std::endl;
   displayArrays(namesArray, numsArray, totalLines);
+
+  // Five searches, returning true if name was found in namesArray
 do {
     searchQuery = getString();
     bool studentFound = binSearch(namesArray, l, totalLines, searchQuery);
