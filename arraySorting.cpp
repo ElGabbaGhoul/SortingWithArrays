@@ -47,7 +47,7 @@ int readFile(std::string namesArray[],std::string numsArray[], int MAXSIZE){
 
 void displayArrays(std::string (& namesArray)[MAXSIZE], std::string (& numsArray)[MAXSIZE], int totalLines) {
     for(int i=0; i < totalLines; i++) {
-        std::cout << i+1 << ": " << "Name: " << namesArray[i] << ", L-Number: " << numsArray[i] <<std::endl;
+        std::cout << i+1 << ": " << namesArray[i] << " " << numsArray[i] <<std::endl;
     }
 
 }
@@ -56,16 +56,16 @@ void sortArrays(std::string (& namesArray)[MAXSIZE], std::string(& numsArray)[MA
 // sorts from z to a
     std::cout << "Sorting Arrays..." << std::endl;
 
-    int i, j, max_idx;
+    int i, j, min_idx;
     for (i = 0; i < totalLines; i++) {
-        max_idx = i;
+        min_idx = i;
         for (j= i+1; j < totalLines; j++) {
-            if (namesArray[j] > namesArray[max_idx])
-                max_idx = j;
+            if (namesArray[j] < namesArray[min_idx])
+                min_idx = j;
         }
-        if (max_idx != i) {
-            swap(namesArray[max_idx], namesArray[i]);
-            swap(numsArray[max_idx], numsArray[i]);
+        if (min_idx != i) {
+            swap(namesArray[min_idx], namesArray[i]);
+            swap(numsArray[min_idx], numsArray[i]);
         }
     }
     // keeps indicies relative across both arrays

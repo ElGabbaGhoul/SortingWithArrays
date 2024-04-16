@@ -16,6 +16,7 @@ Description: A program that creates two parallel arrays from data in student.txt
 int main() {
   int l = 0;
   std::string searchQuery;
+  // Create two parallel arrays max of 20 elements
   std::string namesArray[MAXSIZE];
   std::string numsArray[MAXSIZE];
   int searches = 0;
@@ -24,7 +25,13 @@ int main() {
   int totalLines = readFile(namesArray, numsArray, MAXSIZE);
   std::cout << "Total Lines: " << totalLines << std::endl;
   displayArrays(namesArray, numsArray, totalLines);
+  // Sort Arrays by LNumber (Low -> High)
+  sortArrays(numsArray, namesArray, totalLines);
+  // Displays arrays sorted by LNumber
+  displayArrays(numsArray, namesArray, totalLines);
+  // Sort arrays by Name (A -> Z)
   sortArrays(namesArray, numsArray, totalLines);
+  // Displays arrays sorted by Name
   displayArrays(namesArray, numsArray, totalLines);
 do {
     searchQuery = getString();
