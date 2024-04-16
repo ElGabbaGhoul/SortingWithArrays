@@ -7,23 +7,17 @@
 
 void introMessage() {
     // std::string desktopLocation;
-    std::cout << "Your short file is located in the following directory: " << std::endl;
-    std::cout << g_SHORTFILE << std::endl;
-    std::cout << "Your more file is located in the following directory: " << std::endl;
-    std::cout << g_MOREFILE << std::endl;
+    std::cout << "The output file is located in the project directory as: " << std::endl;
+    std::cout << "student.txt."  << std::endl;
     system("pause");
 }
 
 int readFile(std::string namesArray[],std::string numsArray[], int MAXSIZE){
     // Open the file.
-    std::cout << "Reading file..." << std::endl;
-    std::ifstream infile;
-    // DESKTOP
-    infile.open(R"(C:\Users\Scooter\Desktop\School\HW Spring 24\CS\sample_more.txt)");
-    // LAPTOP
-    // infile.open(R"(C:\Users\scnid\Desktop\School\Spring 24\CS\Lab2\sample_more.txt)");
+    std::ifstream file("student.txt");
+
     // If there is a problem, notify the user.
-    if (!infile) {
+    if (!file.is_open()) {
         std::cerr << "Error opening file" << std::endl;
     }
 
@@ -33,7 +27,7 @@ int readFile(std::string namesArray[],std::string numsArray[], int MAXSIZE){
     int index = 0;
 
     // Read in each line of the file.
-    while (std::getline(infile, line) && index < MAXSIZE) {
+    while (std::getline(file, line) && index < MAXSIZE) {
             size_t pos = line.find(delimiter);
             std::string name = line.substr(0, pos);
             std::string number = line.substr(pos + 1);
@@ -47,7 +41,7 @@ int readFile(std::string namesArray[],std::string numsArray[], int MAXSIZE){
             std::cerr << "Maximum array length reached: " << MAXSIZE << std::endl;
         }
     }
-    infile.close();
+    file.close();
     return index;
 }
 
