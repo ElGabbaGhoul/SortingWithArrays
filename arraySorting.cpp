@@ -10,10 +10,12 @@ void introMessage() {
     std::cout << g_SHORTFILE << std::endl;
     std::cout << "Your more file is located in the following directory: " << std::endl;
     std::cout << g_MOREFILE << std::endl;
+    system("pause");
 }
 
 int readFile(std::string namesArray[],std::string numsArray[], int MAXSIZE){
     // Open the file.
+    std::cout << "Reading file..." << std::endl;
     std::ifstream infile;
     infile.open(R"(C:\Users\scnid\Desktop\School\Spring 24\CS\Lab2\sample_more.txt)");
     // If there is a problem, notify the user.
@@ -42,7 +44,6 @@ int readFile(std::string namesArray[],std::string numsArray[], int MAXSIZE){
         }
     }
     infile.close();
-
     return index;
 }
 
@@ -50,18 +51,27 @@ void displayArrays(std::string (& namesArray)[MAXSIZE], std::string (& numsArray
     for(int i=0; i < totalLines; i++) {
         std::cout << i+1 << ": " << "Name: " << namesArray[i] << ", L-Number: " << numsArray[i] <<std::endl;
     }
+    system("pause");
+
 }
 
 void sortArrays(std::string (& namesArray)[MAXSIZE], std::string(& numsArray)[MAXSIZE], int totalLines) {
 // sorts from z to a
-    for (int i=0; i<totalLines; i++) {
-        std::string name = namesArray[i];
-        std::string elNum = numsArray[i];
+    std::cout << "Sorting Arrays..." << std::endl;
 
-// fake update
-
-
+    int i, j, min_idx;
+    for (i = 0; i < totalLines; i++) {
+        min_idx = i;
+        for (j= i+1; j < totalLines; j++) {
+            if (namesArray[j] < namesArray[min_idx])
+                min_idx = j;
+        }
+        if (min_idx != i) {
+            swap(namesArray[min_idx], namesArray[i]);
+            swap(numsArray[min_idx], numsArray[i]);
+        }
     }
+    system("pause");
     // keeps indicies relative across both arrays
 // no return
 }

@@ -8,6 +8,7 @@ int main() {
 
   introMessage();
   int totalLines = readFile(namesArray, numsArray, MAXSIZE);
+  displayArrays(namesArray, numsArray, totalLines);
   sortArrays(namesArray, numsArray, totalLines);
   displayArrays(namesArray, numsArray, totalLines);
 
